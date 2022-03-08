@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+
+<launch>
+
+  <!-- Set Name of the FishRobot -->
+  <arg name="namespace" default="minion" />
+  <arg name="tam_file" default="$(find demo_teleop)/config/TAM.yaml"/>
+
+  <group ns = "$(arg namespace)">  
+
+    <node pkg="demo_teleop" type="image_following_center_namespace" name="image_processor" output= "screen">    
+    <remap from = "~camera/camera_image" to="$(arg namespace)/camera/camera_image"/>
+    <remap from = "~servo_img" to="servo_img"/>
+    </node>
+
+    <node pkg="demo_teleop" type="get_visual_servo_node.py" name="get_visual_servo">
+    </node>
+
+
+    <!-- Load thruster allocation matrix -->
+    <rosparam file="$(arg tam_file)" command="load"/>  
+
+    <!-- take the pressure and convert into depth measure -->
+    <node pkg="demo_teleop" type="pressure.py" name="pressure_to_depth">
+    </node>
+
+    <!-- Combined Sensors -->
+    <node pkg="demo_teleop" type="sensors.py" name="sensors" >
+    </node>
+
+    <!-- Combined Control -->
+    <node pkg="demo_teleop" type="demo_control_node.py" name="demo_control" >
+    </node>
+
+    <!-- Combined Control -->
+    <!--node pkg="demo_teleop" type="joy2viservoing.py" name="joy2viservoing">
+    </node-->
+
+
+  </group>
+
+
+</launch>

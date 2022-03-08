@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+
+<launch>
+
+  <include file="$(find minion_description)/launch/upload.launch">
+    <arg name="namespace" value="teleoperated_leader"/>
+    <arg name="x" value="0"/>
+    <arg name="y" value="1"/>
+    <arg name="z" value="-0.5"/>
+    
+  </include> 
+
+  <include file="$(find demo_teleop)/launch/combined_teleop.launch">
+    <arg name="namespace" value="teleoperated_leader"/>
+  </include> 
+
+  <include file="$(find minion_description)/launch/upload.launch">
+    <arg name="namespace" value="follower1"/>
+    <arg name="x" value="-2"/>
+    <arg name="y" value="1"/>
+    <arg name="z" value="-0.5"/>
+    
+  </include> 
+
+  <include file="$(find demo_teleop)/launch/emulate_viservo_namespace.launch">
+    <arg name="namespace" value="follower1"/>
+  </include> 
+
+  <include file="$(find minion_description)/launch/upload.launch">
+    <arg name="namespace" value="follower2"/>
+    <arg name="x" value="-4"/>
+    <arg name="y" value="1"/>
+    <arg name="z" value="-0.5"/>
+    
+  </include> 
+
+  <include file="$(find demo_teleop)/launch/emulate_viservo_namespace.launch">
+    <arg name="namespace" value="follower2"/>
+  </include> 
+
+
+</launch>

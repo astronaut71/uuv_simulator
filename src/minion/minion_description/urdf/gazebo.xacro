@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Center of buoyancy -->
+    <xacro:property name="minion_cob" value="0 0 0.04"/>
+
+    <!-- Vehicle's actual volume (Gazebo cannot compute the volume out of the mesh) -->
+    <xacro:property name="minion_volume" value="0.00205"/>
+
+    <!-- Describing the dimensions of the vehicle's bounding box -->
+    <xacro:property name="minion_length" value="0.446"/>
+    <xacro:property name="minion_width"  value="0.161"/>
+    <xacro:property name="minion_height" value="0.232"/>
+
+    <xacro:macro name="minion_hydro_model" params="namespace">
+      <!-- List of hydrodynamic models this robot's links -->
+      <link name="${namespace}/base_link">
+        <!-- This flag will make the link neutrally buoyant -->
+        <neutrally_buoyant>1</neutrally_buoyant>
+
+        <!-- Link's volume -->
+        <volume>${minion_volume}</volume>
+
+        <!-- Link's bounding box, it is used to recalculate the immersed
+        volume when close to the surface.
+        This is a workaround the invalid bounding box given by Gazebo-->
+        <box>
+          <width>${minion_width}</width>
+          <length>${minion_length}</length>
+          <height>${minion_height}</height>
+        </box>
+
+        <!-- Center of buoyancy -->
+        <center_of_buoyancy>${minion_cob}</center_of_buoyancy>
+
+        <!--
+        Choose one of the hydrodynamic models below, all are based on
+        Fossen's equation of motion for underwater vehicles
+
+        Reference:
+        [1] Fossen, Thor I. Handbook of marine craft hydrodynamics and motion
+            control. John Wiley & Sons, 2011.
+        -->
+<!-- 1) Fossen's equation of motion -->
+        <hydrodynamic_model>
+          <type>fossen</type>
+          <added_mass>
+            1.09 0 0 0 0 0
+            0 2.26 0 0 0 0
+            0 0 2.26 0 0 0
+            0 0 0 0 0 0
+            0 0 0 0 0.0025 0
+            0 0 0 0 0 0.0025
+          </added_mass>
+
+          <linear_damping>
+            -0.001 -0.001 -0.001 -0.001 -0.001 -0.001
+          </linear_damping>
+
+
+          <quadratic_damping>
+            -4.04 -26.64 -7.87 -0.1043 -0.1022  -1.12 <!-- -0.0043 -0.0022 -0.12 -->
+          </quadratic_damping>
+
+        </hydrodynamic_model>
+
+      </link>
+    </xacro:macro>
+
+</robot>

@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+
+<launch>
+
+  <!-- Set Name of the FishRobot -->
+  <arg name="namespace" default="minion" />
+  <!--arg name="model_name" default="$(arg model_name)" /-->
+  <arg name="tam_file" default="$(find demo_teleop)/config/TAM.yaml"/>
+
+  <!-- Start Joystick Name of the FishRobot -->
+  <node pkg="joy" type="joy_node" name="joy_node">
+  </node>
+
+  <!-- Start Joystick predictor -->
+  <node pkg="demo_teleop" type="joy_predict_node.py" name="joy_predict">
+  </node>
+
+  <!--remap from = "joy" to="joy_new"/-->
+
+  <!-- Start Modem emulator -->
+  <node pkg="demo_teleop" type="modem_v2.py" name="modem_v2">
+  </node>
+
+  <!-- user commands and temporization -->
+  <node pkg="demo_teleop" type="joy2input.py" name="joy2input">
+  </node>
+
+  <group ns = "$(arg namespace)">  
+
+    <!-- Load thruster allocation matrix -->
+    <rosparam file="$(arg tam_file)" command="load"/>  
+
+    <!-- take the pressure and convert into depth measure -->
+    <node pkg="demo_teleop" type="pressure.py" name="pressure_to_depth">
+    </node>
+
+    <!-- recive the modem command and convert into position/force command -->
+    <node pkg="demo_teleop" type="teleop_interpreter.py" name="teleop_interpreter">
+    </node>
+
+    <!-- Combined Sensors -->
+    <node pkg="demo_teleop" type="sensors.py" name="sensors" >
+    </node>
+
+    <!-- PI side -->
+    <!-- Combined Control -->
+    <!--node pkg="demo_teleop" type="demo_control_node.py" name="demo_control" output="screen">
+    </node> /-->
+    
+   
+
+
+  </group>
+
+
+</launch>

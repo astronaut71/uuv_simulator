@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/bojan/uuv_simulator_ws/devel/setup.sh

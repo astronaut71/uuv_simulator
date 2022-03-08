@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+
+<launch>
+
+  <!-- Set Name of the FishRobot -->
+  <arg name="model_name" default="minion" />
+  <arg name="tam_file" default="$(find demo_teleop)/config/TAM.yaml"/>
+
+  <!-- Start Joystick Name of the FishRobot -->
+  <node pkg="joy" type="joy_node" name="joy_node">
+  </node>
+
+  <!-- Start Modem emulator -->
+  <node pkg="demo_teleop" type="modem_v2.py" name="modem_v2">
+  </node>
+
+  <!-- user commands and temporization -->
+  <node pkg="demo_teleop" type="joy2input.py" name="joy2input">
+  </node>
+
+  <group ns = "$(arg model_name)">  
+
+    <!-- Load thruster allocation matrix -->
+    <rosparam file="$(arg tam_file)" command="load"/>  
+
+    <!-- take the pressure and convert into depth measure -->
+    <node pkg="demo_teleop" type="pressure.py" name="pressure_to_depth">
+    </node>
+
+    <!-- recive the modem command and convert into position/force command -->
+    <node pkg="demo_teleop" type="teleop_interpreter.py" name="teleop_interpreter">
+    </node>
+
+    <!-- Vertical PID position control -->
+    <node pkg="demo_teleop" type="vertical_PID.py" name="vertical_PID">
+    </node>
+
+    <!-- Horizontal force control -->
+    <node pkg="demo_teleop" type="horizontal_force_cmd.py" name="horizontal_force_cmd">
+    </node>
+
+
+  </group>
+
+
+</launch>
+
+

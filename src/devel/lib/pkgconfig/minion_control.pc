@@ -1,0 +1,8 @@
+prefix=/home/bojan/uuv_simulator_ws/src/devel
+
+Name: minion_control
+Description: Description of minion_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

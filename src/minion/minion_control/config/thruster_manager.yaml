@@ -1,0 +1,14 @@
+thruster_manager:
+  tf_prefix: minion
+  base_link: base_link
+  thruster_topic_prefix: thrusters/
+  thruster_topic_suffix: /input
+  thruster_frame_base: thruster_
+  max_thrust: 2.2
+  timeout: -1
+  update_rate: 50
+  conversion_fcn: custom
+  conversion_fcn_params:
+    input: [-100, 0, 100]
+    output: [-2.2, 0, 1.6]
+

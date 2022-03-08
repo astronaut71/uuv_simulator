@@ -1,0 +1,8 @@
+prefix=/home/bojan/uuv_simulator_ws/install
+
+Name: minion_description
+Description: Description of minion_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
