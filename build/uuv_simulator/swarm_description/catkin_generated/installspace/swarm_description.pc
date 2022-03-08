@@ -1,0 +1,8 @@
+prefix=/home/bojan/uuv_simulator_ws/install
+
+Name: swarm_description
+Description: Description of swarm_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

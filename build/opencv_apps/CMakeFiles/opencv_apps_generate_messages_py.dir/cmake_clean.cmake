@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/opencv_apps_generate_messages_py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_LineArrayStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_MomentArray.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_FaceArray.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_FlowStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Flow.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Circle.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RotatedRectArrayStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_LineArray.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Point2DArray.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_FlowArray.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_CircleArrayStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Size.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Line.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Point2DStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Contour.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RotatedRectArray.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RectArrayStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_FlowArrayStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RotatedRectStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_CircleArray.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RectArray.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Point2D.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_RotatedRect.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Moment.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_FaceArrayStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Point2DArrayStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Face.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_Rect.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_MomentArrayStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_ContourArrayStamped.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/_ContourArray.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/srv/_FaceRecognitionTrain.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/msg/__init__.py"
+  "/home/bojan/uuv_simulator_ws/devel/lib/python2.7/dist-packages/opencv_apps/srv/__init__.py"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/opencv_apps_generate_messages_py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
