@@ -1,0 +1,8 @@
+prefix=/home/bojan/uuv_simulator_ws/devel
+
+Name: imu_transformer
+Description: Description of imu_transformer
+Version: 0.3.0
+Cflags: -I/home/bojan/uuv_simulator_ws/src/imu_pipeline/imu_transformer/include
+Libs: -L${prefix}/lib -limu_transformer_nodelet
+Requires: roscpp message_filters nodelet sensor_msgs tf2 tf2_ros geometry_msgs

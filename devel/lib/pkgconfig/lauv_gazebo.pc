@@ -1,0 +1,8 @@
+prefix=/home/bojan/uuv_simulator_ws/devel
+
+Name: lauv_gazebo
+Description: Description of lauv_gazebo
+Version: 0.1.6
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

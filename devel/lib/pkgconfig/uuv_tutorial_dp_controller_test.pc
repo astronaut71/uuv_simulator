@@ -1,0 +1,8 @@
+prefix=/home/bojan/uuv_simulator_ws/devel
+
+Name: uuv_tutorial_dp_controller_test
+Description: Description of uuv_tutorial_dp_controller_test
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

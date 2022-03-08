@@ -1,0 +1,8 @@
+prefix=/home/bojan/uuv_simulator_ws/devel
+
+Name: swarm_control
+Description: Description of swarm_control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
